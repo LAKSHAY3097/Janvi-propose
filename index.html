@@ -2,2793 +2,784 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#070308">
-<meta name="apple-mobile-web-app-capable" content="yes">
-
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080309">
 <title>For Janvi ❤️</title>
 
 <style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html,
-body{
-    width:100%;
-    height:100%;
-    overflow:hidden;
-}
-
-body{
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    color:#fff;
-    background:#070308;
-}
-
-
-/* =========================================================
-   BACKGROUND
-========================================================= */
-
-.background{
-    position:fixed;
-    inset:0;
-    overflow:hidden;
-
-    background:
-        radial-gradient(
-            circle at 15% 15%,
-            rgba(255,35,95,.18),
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at 85% 80%,
-            rgba(160,15,70,.20),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 50% 50%,
-            rgba(255,0,80,.04),
-            transparent 45%
-        ),
-        linear-gradient(
-            145deg,
-            #030204,
-            #17050f 50%,
-            #040205
-        );
-}
-
-.background::before{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-        radial-gradient(
-            rgba(255,255,255,.65) 1px,
-            transparent 1px
-        );
-
-    background-size:65px 65px;
-    opacity:.18;
-
-    animation:
-        starsMove
-        30s
-        linear
-        infinite;
-}
-
-@keyframes starsMove{
-
-    from{
-        transform:translateY(0);
-    }
-
-    to{
-        transform:translateY(65px);
-    }
-}
-
-
-/* =========================================================
-   GLOW ORBS
-========================================================= */
-
-.glow{
-    position:absolute;
-
-    width:430px;
-    height:430px;
-
-    border-radius:50%;
-
-    background:#ff164f;
-
-    filter:blur(130px);
-
-    opacity:.16;
-
-    animation:
-        floatingGlow
-        12s
-        ease-in-out
-        infinite
-        alternate;
-}
-
-.glow.one{
-    left:-220px;
-    top:-170px;
-}
-
-.glow.two{
-    right:-220px;
-    bottom:-180px;
-
-    animation-delay:3s;
-}
-
-@keyframes floatingGlow{
-
-    to{
-        transform:
-            translate(100px,70px)
-            scale(1.25);
-    }
-}
-
-
-/* =========================================================
-   FLOATING HEARTS
-========================================================= */
-
-.floating-heart{
-    position:fixed;
-
-    z-index:2;
-
-    pointer-events:none;
-
-    color:#ff6f91;
-
-    opacity:0;
-
-    animation:
-        floatHeart
-        linear
-        forwards;
-}
-
-@keyframes floatHeart{
-
-    0%{
-        transform:
-            translateY(110vh)
-            rotate(0deg)
-            scale(.7);
-
-        opacity:0;
-    }
-
-    15%{
-        opacity:.55;
-    }
-
-    85%{
-        opacity:.35;
-    }
-
-    100%{
-        transform:
-            translateY(-15vh)
-            translateX(var(--drift))
-            rotate(360deg)
-            scale(1.15);
-
-        opacity:0;
-    }
-}
-
-
-/* =========================================================
-   PROGRESS
-========================================================= */
-
-.progress{
-    position:fixed;
-
-    top:17px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    display:flex;
-    gap:6px;
-
-    z-index:100;
-}
-
-.progress-dot{
-    width:5px;
-    height:5px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.2);
-
-    transition:
-        width .4s ease,
-        background .4s ease,
-        box-shadow .4s ease;
-}
-
-.progress-dot.active{
-    width:20px;
-
-    background:#ff5278;
-
-    box-shadow:
-        0 0 12px
-        rgba(255,50,100,.8);
-}
-
-
-/* =========================================================
-   MAIN
-========================================================= */
-
-.container{
-    width:100%;
-    height:100vh;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:18px;
-
-    position:relative;
-    z-index:10;
-}
-
-.card{
-    position:relative;
-
-    width:min(94vw,480px);
-    height:min(92vh,735px);
-
-    overflow:hidden;
-
-    border-radius:36px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.13);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.09),
-            rgba(255,255,255,.025)
-        );
-
-    backdrop-filter:blur(28px);
-    -webkit-backdrop-filter:blur(28px);
-
-    box-shadow:
-        0 40px 110px rgba(0,0,0,.72),
-        inset 0 1px 0 rgba(255,255,255,.10);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:30px 24px;
-}
-
-.card::before{
-    content:"";
-
-    position:absolute;
-
-    width:260px;
-    height:260px;
-
-    border-radius:50%;
-
-    top:-150px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    background:
-        rgba(255,30,90,.12);
-
-    filter:blur(80px);
-
-    pointer-events:none;
-}
-
-.card::after{
-    content:"";
-
-    position:absolute;
-
-    width:250px;
-    height:250px;
-
-    border-radius:50%;
-
-    right:-150px;
-    bottom:-150px;
-
-    background:
-        rgba(255,20,80,.07);
-
-    filter:blur(80px);
-
-    pointer-events:none;
-}
-
-
-/* =========================================================
-   SCREENS
-========================================================= */
-
-.screen{
-    width:100%;
-    height:100%;
-
-    display:none;
-
-    position:relative;
-    z-index:5;
-
-    text-align:center;
-
-    overflow-y:auto;
-
-    scrollbar-width:none;
-
-    -webkit-overflow-scrolling:touch;
-}
-
-.screen::-webkit-scrollbar{
-    display:none;
-}
-
-.screen.active{
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    animation:
-        screenAppear
-        .85s
-        cubic-bezier(.2,.8,.2,1);
-}
-
-@keyframes screenAppear{
-
-    from{
-        opacity:0;
-
-        transform:
-            translateY(25px)
-            scale(.98);
-
-        filter:blur(5px);
-    }
-
-    to{
-        opacity:1;
-
-        transform:none;
-
-        filter:none;
-    }
-}
-
-
-/* =========================================================
-   TYPOGRAPHY
-========================================================= */
-
-.eyebrow{
-    font-family:Arial,sans-serif;
-
-    font-size:9px;
-
-    letter-spacing:4px;
-
-    text-transform:uppercase;
-
-    color:rgba(255,255,255,.43);
-
-    margin-bottom:18px;
-}
-
-h1{
-    font-size:52px;
-
-    font-weight:400;
-
-    line-height:1.05;
-
-    margin:14px 0;
-}
-
-h2{
-    font-size:29px;
-
-    font-weight:400;
-
-    line-height:1.25;
-
-    margin-bottom:17px;
-}
-
-.gradient-text{
-    background:
-        linear-gradient(
-            90deg,
-            #fff,
-            #ff91ae,
-            #fff,
-            #ff638b
-        );
-
-    background-size:250%;
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
-
-    animation:
-        gradientMove
-        5s
-        linear
-        infinite;
-}
-
-@keyframes gradientMove{
-
-    to{
-        background-position:250%;
-    }
-}
-
-.description{
-    font-family:Arial,sans-serif;
-
-    font-size:13px;
-
-    line-height:1.9;
-
-    color:rgba(255,255,255,.63);
-}
-
-.pink{
-    color:#ff91ad;
-}
-
-
-/* =========================================================
-   BUTTON
-========================================================= */
-
-.primary-button{
-    border:none;
-
-    padding:15px 31px;
-
-    margin:25px auto 0;
-
-    border-radius:50px;
-
-    color:#fff;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff416c,
-            #ff174f
-        );
-
-    font-family:Arial,sans-serif;
-
-    font-size:14px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 15px 40px
-        rgba(255,25,80,.35);
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease;
-}
-
-.primary-button:hover{
-    transform:
-        translateY(-3px)
-        scale(1.03);
-
-    box-shadow:
-        0 20px 50px
-        rgba(255,25,80,.55);
-}
-
-.primary-button:active{
-    transform:scale(.97);
-}
-
-
-/* =========================================================
-   HEART
-========================================================= */
-
-.big-heart{
-    font-size:75px;
-
-    display:inline-block;
-
-    filter:
-        drop-shadow(
-            0 0 28px
-            rgba(255,30,90,.65)
-        );
-
-    animation:
-        heartbeat
-        1.5s
-        infinite;
-}
-
-@keyframes heartbeat{
-
-    0%,
-    100%{
-        transform:scale(1);
-    }
-
-    12%{
-        transform:scale(1.15);
-    }
-
-    24%{
-        transform:scale(1);
-    }
-
-    35%{
-        transform:scale(1.09);
-    }
-
-    47%{
-        transform:scale(1);
-    }
-}
-
-
-/* =========================================================
-   PHOTO
-========================================================= */
-
-.photo-frame{
-    position:relative;
-
-    width:min(100%,330px);
-
-    margin:
-        0 auto
-        18px;
-}
-
-.photo{
-    width:100%;
-
-    height:280px;
-
-    display:block;
-
-    object-fit:cover;
-
-    border-radius:24px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.16);
-
-    box-shadow:
-        0 25px 60px
-        rgba(0,0,0,.48);
-}
-
-.photo-frame::after{
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    border-radius:24px;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.38),
-            transparent 55%
-        );
-
-    pointer-events:none;
-}
-
-
-/* =========================================================
-   POLAROID
-========================================================= */
-
-.polaroid{
-    background:#f8f3f4;
-
-    padding:8px 8px 25px;
-
-    border-radius:3px;
-
-    box-shadow:
-        0 25px 60px
-        rgba(0,0,0,.55);
-
-    transform:
-        rotate(-2deg);
-
-    width:min(100%,320px);
-
-    margin:0 auto 20px;
-}
-
-.polaroid img{
-    width:100%;
-    height:270px;
-
-    object-fit:cover;
-
-    display:block;
-}
-
-.polaroid span{
-    display:block;
-
-    color:#22141a;
-
-    font-family:
-        "Brush Script MT",
-        cursive;
-
-    font-size:19px;
-
-    margin-top:8px;
-}
-
-
-/* =========================================================
-   REASONS
-========================================================= */
-
-.reason-grid{
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:9px;
-
-    margin-top:12px;
-}
-
-.reason{
-    padding:14px 10px;
-
-    border-radius:16px;
-
-    border:
-        1px solid
-        rgba(255,90,125,.28);
-
-    background:
-        rgba(255,255,255,.035);
-
-    color:
-        rgba(255,255,255,.75);
-
-    font-family:Arial,sans-serif;
-
-    font-size:11px;
-
-    line-height:1.5;
-
-    transition:.3s;
-}
-
-.reason:hover{
-    transform:translateY(-3px);
-
-    background:
-        rgba(255,45,100,.08);
-}
-
-.reason-icon{
-    font-size:19px;
-
-    color:#ff8eaa;
-
-    display:block;
-
-    margin-bottom:6px;
-}
-
-
-/* =========================================================
-   SHAYARI
-========================================================= */
-
-.shayari-box{
-    text-align:left;
-
-    padding:4px 7px;
-
-    margin-top:5px;
-}
-
-.shayari-line{
-    font-size:17px;
-
-    line-height:1.85;
-
-    color:rgba(255,255,255,.86);
-
-    margin-bottom:11px;
-
-    opacity:0;
-
-    transform:translateY(12px);
-
-    animation:
-        revealLine
-        .7s
-        forwards;
-}
-
-.shayari-line:nth-child(1){
-    animation-delay:.1s;
-}
-
-.shayari-line:nth-child(2){
-    animation-delay:.45s;
-}
-
-.shayari-line:nth-child(3){
-    animation-delay:.8s;
-}
-
-.shayari-line:nth-child(4){
-    animation-delay:1.15s;
-}
-
-.shayari-line:nth-child(5){
-    animation-delay:1.5s;
-}
-
-@keyframes revealLine{
-
-    to{
-        opacity:1;
-        transform:none;
-    }
-}
-
-
-/* =========================================================
-   WISHES
-========================================================= */
-
-.wishes{
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:9px;
-
-    margin:20px 0;
-}
-
-.wish{
-    padding:15px 9px;
-
-    border-radius:17px;
-
-    border:
-        1px solid
-        rgba(255,90,125,.3);
-
-    background:
-        rgba(255,255,255,.035);
-
-    font-family:Arial,sans-serif;
-
-    font-size:11px;
-
-    line-height:1.5;
-
-    color:rgba(255,255,255,.75);
-}
-
-.wish-icon{
-    display:block;
-
-    font-size:21px;
-
-    margin-bottom:6px;
-}
-
-
-/* =========================================================
-   LETTER
-========================================================= */
-
-.letter{
-    text-align:left;
-
-    max-height:365px;
-
-    overflow-y:auto;
-
-    scrollbar-width:none;
-
-    padding:
-        3px
-        7px;
-}
-
-.letter::-webkit-scrollbar{
-    display:none;
-}
-
-.letter p{
-    font-size:14px;
-
-    line-height:1.85;
-
-    color:rgba(255,255,255,.78);
-
-    margin-bottom:16px;
-}
-
-.letter .opening{
-    font-size:19px;
-
-    color:#ff91ad;
-}
-
-
-/* =========================================================
-   SECRET LINE
-========================================================= */
-
-.secret-reveal{
-    font-size:21px;
-
-    line-height:1.6;
-
-    color:#fff;
-
-    margin:20px 0;
-}
-
-.secret-reveal span{
-    color:#ff8fa9;
-}
-
-
-/* =========================================================
-   PROPOSAL
-========================================================= */
-
-.proposal-heart{
-    font-size:72px;
-
-    display:inline-block;
-
-    animation:
-        heartbeat
-        1.45s
-        infinite;
-
-    filter:
-        drop-shadow(
-            0 0 30px
-            rgba(255,40,100,.7)
-        );
-}
-
-.proposal-name{
-    font-size:39px;
-
-    margin:13px 0 15px;
-}
-
-.proposal-text{
-    font-family:Arial,sans-serif;
-
-    font-size:13px;
-
-    line-height:1.85;
-
-    color:rgba(255,255,255,.72);
-}
-
-.proposal-question{
-    font-size:21px;
-
-    line-height:1.55;
-
-    margin-top:18px;
-
-    color:#ff9bb4;
-}
-
-.proposal-question strong{
-    color:#fff;
-
-    font-size:24px;
-}
-
-
-/* =========================================================
-   YES / NO
-========================================================= */
-
-.choice-area{
-    position:relative;
-
-    height:155px;
-
-    width:100%;
-
-    margin-top:5px;
-}
-
-.yes-button{
-    position:absolute;
-
-    left:50%;
-    top:10px;
-
-    transform:translateX(-50%);
-
-    z-index:5;
-
-    border:none;
-
-    border-radius:50px;
-
-    padding:16px 42px;
-
-    color:#fff;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff416c,
-            #ff174f
-        );
-
-    font-family:Arial,sans-serif;
-
-    font-size:16px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 15px 50px
-        rgba(255,20,80,.5);
-
-    transition:
-        transform .25s;
-}
-
-.yes-button:hover{
-    transform:
-        translateX(-50%)
-        scale(1.08);
-}
-
-.yes-button small{
-    display:block;
-
-    margin-top:3px;
-
-    font-size:9px;
-
-    font-weight:normal;
-
-    opacity:.8;
-}
-
-.no-button{
-    position:absolute;
-
-    left:50%;
-    top:82px;
-
-    z-index:6;
-
-    transform:translateX(-50%);
-
-    border:
-        1px solid
-        rgba(255,255,255,.17);
-
-    border-radius:40px;
-
-    padding:10px 22px;
-
-    color:
-        rgba(255,255,255,.6);
-
-    background:
-        rgba(255,255,255,.07);
-
-    font-family:Arial,sans-serif;
-
-    font-size:12px;
-
-    cursor:pointer;
-
-    white-space:nowrap;
-
-    transition:
-        left .10s ease,
-        top .10s ease;
-}
-
-
-/* =========================================================
-   FINAL
-========================================================= */
-
-.final-photo{
-    width:min(100%,300px);
-
-    height:250px;
-
-    object-fit:cover;
-
-    display:block;
-
-    margin:0 auto 14px;
-
-    border-radius:24px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.16);
-
-    box-shadow:
-        0 25px 60px
-        rgba(0,0,0,.5);
-}
-
-.final-heart{
-    font-size:82px;
-
-    display:inline-block;
-
-    filter:
-        drop-shadow(
-            0 0 35px
-            rgba(255,30,90,.8)
-        );
-
-    animation:
-        finalHeartbeat
-        1s
-        infinite
-        alternate;
-}
-
-@keyframes finalHeartbeat{
-
-    to{
-        transform:scale(1.12);
-    }
-}
-
-.final-title{
-    font-size:38px;
-
-    margin:10px 0 15px;
-}
-
-.final-text{
-    font-family:Arial,sans-serif;
-
-    font-size:13px;
-
-    line-height:1.85;
-
-    color:rgba(255,255,255,.76);
-}
-
-
-/* =========================================================
-   MEMORY CAPSULE
-========================================================= */
-
-.memory{
-    display:none;
-
-    margin-top:20px;
-
-    padding:20px 17px;
-
-    border-radius:20px;
-
-    border:
-        1px solid
-        rgba(255,90,125,.35);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.07),
-            rgba(255,20,80,.035)
-        );
-
-    font-family:Arial,sans-serif;
-
-    font-size:13px;
-
-    line-height:1.85;
-
-    color:rgba(255,255,255,.78);
-
-    animation:
-        memoryOpen
-        .8s
-        ease;
-}
-
-.memory.show{
-    display:block;
-}
-
-.memory-date{
-    color:#ff91ad;
-
-    font-family:Georgia,serif;
-
-    font-size:18px;
-
-    margin-bottom:14px;
-}
-
-@keyframes memoryOpen{
-
-    from{
-        opacity:0;
-
-        transform:
-            translateY(20px)
-            scale(.96);
-    }
-
-    to{
-        opacity:1;
-
-        transform:none;
-    }
-}
-
-
-/* =========================================================
-   HEART EXPLOSION
-========================================================= */
-
-.explosion{
-    position:fixed;
-
-    z-index:500;
-
-    left:50%;
-    top:50%;
-
-    pointer-events:none;
-
-    font-size:20px;
-
-    animation:
-        explode
-        2.8s
-        ease-out
-        forwards;
-}
-
-@keyframes explode{
-
-    from{
-        opacity:1;
-
-        transform:
-            translate(-50%,-50%)
-            scale(.3)
-            rotate(0deg);
-    }
-
-    to{
-        opacity:0;
-
-        transform:
-            translate(
-                calc(-50% + var(--x)),
-                calc(-50% + var(--y))
-            )
-            scale(.85)
-            rotate(720deg);
-    }
-}
-
-
-/* =========================================================
-   MUSIC BUTTON
-========================================================= */
-
-.music-button{
-    position:fixed;
-
-    right:17px;
-    bottom:17px;
-
-    width:47px;
-    height:47px;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(255,255,255,.18);
-
-    background:
-        rgba(255,255,255,.08);
-
-    backdrop-filter:blur(15px);
-
-    color:#fff;
-
-    font-size:17px;
-
-    cursor:pointer;
-
-    z-index:200;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden}
+body{background:#080309;color:#fff;font-family:Georgia,"Times New Roman",serif;-webkit-tap-highlight-color:transparent}
+
+.bg{position:fixed;inset:0;overflow:hidden;background:
+radial-gradient(circle at 10% 10%,rgba(255,30,90,.18),transparent 30%),
+radial-gradient(circle at 90% 90%,rgba(190,20,90,.18),transparent 32%),
+linear-gradient(145deg,#030204,#17050e 50%,#050205)}
+.bg:before{content:"";position:absolute;inset:-100px;background-image:radial-gradient(rgba(255,255,255,.6) 1px,transparent 1px);background-size:70px 70px;opacity:.13;animation:stars 35s linear infinite}
+.glow{position:absolute;width:430px;height:430px;border-radius:50%;background:#ff174f;filter:blur(140px);opacity:.12}
+.g1{top:-230px;left:-230px}.g2{right:-240px;bottom:-230px}
+@keyframes stars{to{transform:translateY(70px)}}
+
+.app{position:relative;z-index:5;width:100%;height:100vh;display:flex;align-items:center;justify-content:center;padding:10px}
+.card{position:relative;width:min(94vw,510px);height:min(95vh,780px);overflow:hidden;border-radius:35px;border:1px solid rgba(255,255,255,.13);background:linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.025));backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);box-shadow:0 40px 120px rgba(0,0,0,.75),inset 0 1px 0 rgba(255,255,255,.08)}
+
+.progress{position:absolute;top:17px;left:50%;transform:translateX(-50%);z-index:100;display:flex;gap:6px}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.18);transition:.35s}
+.dot.active{width:21px;background:#ff5279;box-shadow:0 0 15px rgba(255,40,90,.8)}
+
+.screen{position:absolute;inset:0;display:none;padding:58px 27px 88px;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;text-align:center}
+.screen::-webkit-scrollbar{display:none}
+.screen.active{display:flex;flex-direction:column;justify-content:center;animation:enter .65s cubic-bezier(.2,.8,.2,1)}
+@keyframes enter{from{opacity:0;transform:translateY(18px) scale(.985);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+
+.eyebrow{margin-bottom:16px;font:9px Arial,sans-serif;letter-spacing:4px;line-height:1.6;text-transform:uppercase;color:rgba(255,255,255,.42)}
+h1{margin:8px 0 14px;font-size:52px;font-weight:400;line-height:1.05}
+h2{margin:8px 0 15px;font-size:28px;font-weight:400;line-height:1.3}
+.gradient{background:linear-gradient(90deg,#fff,#ff91aa,#fff,#ff5d84);background-size:250%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:grad 5s linear infinite}
+@keyframes grad{to{background-position:250%}}
+.muted{font:13px Arial,sans-serif;line-height:1.9;color:rgba(255,255,255,.62)}
+.pink{color:#ff91ad}
+
+.big-heart,.proposal-heart,.final-heart{display:inline-block;font-size:65px;filter:drop-shadow(0 0 28px rgba(255,30,90,.75));animation:beat 1.4s infinite}
+@keyframes beat{0%,100%{transform:scale(1)}14%{transform:scale(1.14)}28%{transform:scale(1)}42%{transform:scale(1.08)}56%{transform:scale(1)}}
+
+.photo-wrap{width:min(100%,345px);margin:0 auto 16px;position:relative}
+.photo{display:block;width:100%;height:auto;max-height:360px;object-fit:contain;object-position:center;border-radius:25px;background:#030205;border:1px solid rgba(255,255,255,.15);box-shadow:0 28px 65px rgba(0,0,0,.58)}
+.photo-badge{position:absolute;left:12px;bottom:12px;padding:7px 11px;border-radius:30px;font:9px Arial;color:rgba(255,255,255,.85);background:rgba(0,0,0,.42);backdrop-filter:blur(12px)}
+
+.memory-photo{width:min(100%,340px);margin:0 auto 18px;padding:7px;border-radius:25px;background:linear-gradient(145deg,rgba(255,255,255,.15),rgba(255,40,100,.07));box-shadow:0 30px 70px rgba(0,0,0,.52);transform:rotate(-1deg)}
+.memory-photo img{display:block;width:100%;height:auto;max-height:330px;object-fit:contain;border-radius:19px;background:#030205}
+
+.primary{display:block;margin:22px auto 0;padding:15px 27px;border:0;border-radius:50px;color:#fff;background:linear-gradient(135deg,#ff416c,#ff174f);font:bold 13px Arial;cursor:pointer;box-shadow:0 15px 45px rgba(255,25,80,.36);transition:.25s}
+.primary:hover{transform:translateY(-3px) scale(1.025)}
+.primary:active{transform:scale(.96)}
+
+.back,.music{position:absolute;bottom:15px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:160;backdrop-filter:blur(14px)}
+.back{left:15px;font-size:27px}.music{right:15px;font-size:17px}.music.playing{background:rgba(255,45,95,.2);box-shadow:0 0 25px rgba(255,40,90,.25)}
+
+.shayari{text-align:left;padding:0 4px}
+.line{font-size:17px;line-height:1.8;color:rgba(255,255,255,.86);margin-bottom:13px;opacity:0;transform:translateY(12px);animation:line .7s forwards}
+.line:nth-child(1){animation-delay:.1s}.line:nth-child(2){animation-delay:.4s}.line:nth-child(3){animation-delay:.7s}.line:nth-child(4){animation-delay:1s}.line:nth-child(5){animation-delay:1.3s}
+@keyframes line{to{opacity:1;transform:none}}
+
+.reason-grid,.wishes{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}
+.reason,.wish{padding:14px 10px;border-radius:17px;border:1px solid rgba(255,70,110,.22);background:rgba(255,255,255,.035);font:11px/1.5 Arial;color:rgba(255,255,255,.75)}
+.icon{display:block;margin-bottom:6px;font-size:20px;color:#ff91ad}
+.wish{padding:13px 9px;border-radius:16px}
+
+.letter{text-align:left;max-height:420px;overflow-y:auto;scrollbar-width:none;padding:0 5px}
+.letter::-webkit-scrollbar{display:none}
+.letter p{margin-bottom:16px;font-size:14px;line-height:1.85;color:rgba(255,255,255,.77)}
+.letter .opening{font-size:19px;color:#ff91ad}
+
+.proposal-name{margin:5px 0 12px;font-size:39px}
+.proposal-copy{font:13px/1.8 Arial;color:rgba(255,255,255,.72)}
+.question{margin-top:17px;font-size:20px;line-height:1.55;color:#ff94ad}
+.question strong{color:#fff;font-size:24px}
+
+.choice{position:relative;width:100%;height:170px;margin-top:8px}
+.yes{position:absolute;top:8px;left:50%;transform:translateX(-50%);z-index:10;border:0;padding:15px 38px;border-radius:50px;color:#fff;background:linear-gradient(135deg,#ff416c,#ff174f);font:bold 16px Arial;cursor:pointer;box-shadow:0 16px 50px rgba(255,20,80,.5)}
+.yes small{display:block;margin-top:3px;font-size:9px;font-weight:normal;opacity:.8}
+.no{position:absolute;left:50%;top:88px;transform:translateX(-50%);z-index:20;padding:10px 22px;border-radius:40px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);color:rgba(255,255,255,.58);font:12px Arial;cursor:pointer;white-space:nowrap}
+
+.final-photo{display:block;width:min(100%,320px);height:auto;max-height:300px;object-fit:contain;margin:0 auto 14px;border-radius:25px;border:1px solid rgba(255,255,255,.15);box-shadow:0 30px 70px rgba(0,0,0,.6)}
+.final-title{margin:6px 0 12px;font-size:37px}
+.final-copy{font:13px/1.82 Arial;color:rgba(255,255,255,.75)}
+
+.secret{display:none;margin-top:19px;padding:20px 17px;border-radius:21px;border:1px solid rgba(255,75,115,.3);background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,20,80,.035));font:13px/1.85 Arial;color:rgba(255,255,255,.78);text-align:left;animation:secret .7s ease}
+.secret.show{display:block}
+.secret-title{color:#ff91ad;font:18px Georgia;margin-bottom:13px}
+@keyframes secret{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+
+.explosion{position:fixed;left:50%;top:50%;z-index:9999;pointer-events:none;font-size:20px;animation:explode 2.7s ease-out forwards}
+@keyframes explode{from{opacity:1;transform:translate(-50%,-50%) scale(.3)}to{opacity:0;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(.9) rotate(720deg)}}
+
+.particle{position:fixed;z-index:3;pointer-events:none;color:#ff7294;opacity:0;animation:float linear forwards}
+@keyframes float{0%{opacity:0;transform:translateY(110vh) rotate(0) scale(.7)}15%{opacity:.5}80%{opacity:.28}100%{opacity:0;transform:translateY(-15vh) translateX(var(--drift)) rotate(360deg) scale(1.2)}}
 
 @media(max-width:480px){
-
-    .container{
-        padding:13px;
-    }
-
-    .card{
-        width:95vw;
-        height:94vh;
-
-        border-radius:30px;
-
-        padding:
-            27px
-            18px;
-    }
-
-    h1{
-        font-size:44px;
-    }
-
-    h2{
-        font-size:26px;
-    }
-
-    .photo{
-        height:245px;
-    }
-
-    .polaroid img{
-        height:240px;
-    }
-
-    .shayari-line{
-        font-size:16px;
-    }
-
-    .letter{
-        max-height:390px;
-    }
-
-    .letter p{
-        font-size:13px;
-    }
-
-    .proposal-name{
-        font-size:35px;
-    }
-
-    .final-title{
-        font-size:34px;
-    }
-
-    .final-photo{
-        height:220px;
-    }
+.card{width:96vw;height:95vh;border-radius:31px}
+.screen{padding:56px 20px 84px}
+h1{font-size:43px}h2{font-size:25px}
+.photo{max-height:335px}.line{font-size:16px}
+.proposal-name{font-size:35px}.final-title{font-size:33px}
 }
-
+@media(max-height:680px){
+.screen{padding-top:52px}.photo{max-height:245px}
+.big-heart,.proposal-heart,.final-heart{font-size:54px}
+h1{font-size:38px}h2{font-size:22px}.primary{margin-top:14px}
+}
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =========================================================
-     BACKGROUND
-========================================================= -->
-
-<div class="background">
-
-    <div class="glow one"></div>
-    <div class="glow two"></div>
-
+<div class="bg">
+<div class="glow g1"></div>
+<div class="glow g2"></div>
 </div>
 
-
-<!-- =========================================================
-     PROGRESS
-========================================================= -->
-
-<div class="progress">
-
-    <span class="progress-dot active" id="dot1"></span>
-    <span class="progress-dot" id="dot2"></span>
-    <span class="progress-dot" id="dot3"></span>
-    <span class="progress-dot" id="dot4"></span>
-    <span class="progress-dot" id="dot5"></span>
-    <span class="progress-dot" id="dot6"></span>
-    <span class="progress-dot" id="dot7"></span>
-
-</div>
-
-
-<!-- =========================================================
-     MAIN CARD
-========================================================= -->
-
-<div class="container">
-
+<div class="app">
 <div class="card">
 
+<div class="progress">
+<span class="dot active" id="dot1"></span>
+<span class="dot" id="dot2"></span>
+<span class="dot" id="dot3"></span>
+<span class="dot" id="dot4"></span>
+<span class="dot" id="dot5"></span>
+<span class="dot" id="dot6"></span>
+<span class="dot" id="dot7"></span>
+</div>
 
-<!-- =======================================================
-     SCREEN 1
-======================================================= -->
 
+<!-- SCREEN 1 -->
 <section class="screen active" id="screen1">
 
-    <div class="eyebrow">
-        Something I made only for you
-    </div>
-
-
-    <div class="photo-frame">
-
-        <img
-            class="photo"
-            src="IMG_1045.jpeg"
-            alt="Janvi"
-        >
-
-    </div>
-
-
-    <div class="big-heart">
-        ♡
-    </div>
-
-
-    <h1>
-
-        <span class="gradient-text">
-            Janvi,
-        </span>
-
-    </h1>
-
-
-    <p class="description">
-
-        Don't answer anything yet.
-
-        <br>
-
-        I just want you to spend
-        a few minutes inside
-        the way I see you.
-
-    </p>
-
-
-    <button
-        class="primary-button"
-        onclick="nextScreen(2)"
-    >
-
-        Start this little story →
-
-    </button>
-
-</section>
-
-
-
-<!-- =======================================================
-     SCREEN 2
-======================================================= -->
-
-<section class="screen" id="screen2">
-
-    <div class="eyebrow">
-        Chapter 02 · The way I see you
-    </div>
-
-
-    <h2>
-        If I had to describe you...
-    </h2>
-
-
-    <div class="polaroid">
-
-        <img
-            src="IMG_1048.jpeg"
-            alt="Janvi"
-        >
-
-        <span>
-            "The girl who makes ordinary things beautiful."
-        </span>
-
-    </div>
-
-
-    <div class="reason-grid">
-
-        <div class="reason">
-
-            <span class="reason-icon">
-                ♡
-            </span>
-
-            Your smile.
-
-        </div>
-
-
-        <div class="reason">
-
-            <span class="reason-icon">
-                ✦
-            </span>
-
-            The way you make
-            ordinary moments
-            feel different.
-
-        </div>
-
-
-        <div class="reason">
-
-            <span class="reason-icon">
-                ☆
-            </span>
-
-            The little things
-            you don't even realise
-            I notice.
-
-        </div>
-
-
-        <div class="reason">
-
-            <span class="reason-icon">
-                ∞
-            </span>
-
-            The way you somehow
-            stay on my mind.
-
-        </div>
-
-    </div>
-
-
-    <button
-        class="primary-button"
-        onclick="nextScreen(3)"
-    >
-
-        There's something
-        I haven't told you →
-
-    </button>
-
-</section>
-
-
-
-<!-- =======================================================
-     SCREEN 3
-======================================================= -->
-
-<section class="screen" id="screen3">
-
-    <div class="eyebrow">
-        Chapter 03 · A shayari for you
-    </div>
-
-
-    <div class="photo-frame">
-
-        <img
-            class="photo"
-            src="IMG_1047.jpeg"
-            alt="Janvi"
-        >
-
-    </div>
-
-
-    <div class="shayari-box">
-
-        <p class="shayari-line">
-
-            Tumse mila toh laga,
-            shayad kuch mulaqatein
-            ittefaq nahi hoti...
-
-        </p>
-
-
-        <p class="shayari-line">
-
-            Kuch log bas milte nahi,
-
-            <span class="pink">
-                dil mein utar jaate hain.
-            </span>
-
-        </p>
-
-
-        <p class="shayari-line">
-
-            Tumhari ek muskaan ka asar
-            kuch aisa hai,
-
-            ki din chahe kitna bhi kharab ho,
-
-            dil ko tumhara khayal
-            kaafi lagta hai.
-
-        </p>
-
-
-        <p class="shayari-line">
-
-            Na jaane kya baat hai tum mein,
-
-            jo tumse baat karne ka mann
-            baar-baar karta hai.
-
-        </p>
-
-
-        <p class="shayari-line">
-
-            Aur sach kahun Janvi...
-
-            <br>
-
-            mujhe tumse sirf mohabbat nahi,
-
-            <span class="pink">
-
-                tumhare saath
-                ek kahani chahiye. ❤️
-
-            </span>
-
-        </p>
-
-    </div>
-
-
-    <button
-        class="primary-button"
-        onclick="nextScreen(4)"
-    >
-
-        Let me tell you what I want →
-
-    </button>
-
-</section>
-
-
-
-<!-- =======================================================
-     SCREEN 4
-======================================================= -->
-
-<section class="screen" id="screen4">
-
-    <div class="eyebrow">
-        Chapter 04 · What I'm really asking for
-    </div>
-
-
-    <h2>
-        I don't need forever
-        promised tonight.
-    </h2>
-
-
-    <p class="description">
-
-        I'm asking for something
-        smaller...
-
-        <br>
-
-        and somehow much more beautiful.
-
-    </p>
-
-
-    <div class="wishes">
-
-        <div class="wish">
-
-            <span class="wish-icon">
-                ☎
-            </span>
-
-            Let me be the person
-            you call when something
-            amazing happens.
-
-        </div>
-
-
-        <div class="wish">
-
-            <span class="wish-icon">
-                ☺
-            </span>
-
-            Let me make you laugh
-            when your day isn't
-            going well.
-
-        </div>
-
-
-        <div class="wish">
-
-            <span class="wish-icon">
-                ♡
-            </span>
-
-            Let me collect stupid
-            little memories with you.
-
-        </div>
-
-
-        <div class="wish">
-
-            <span class="wish-icon">
-                ✦
-            </span>
-
-            Let me notice the
-            little things nobody
-            else notices.
-
-        </div>
-
-
-        <div class="wish">
-
-            <span class="wish-icon">
-                ∞
-            </span>
-
-            Let me be there for you
-            on ordinary days too.
-
-        </div>
-
-
-        <div class="wish">
-
-            <span class="wish-icon">
-                ♥
-            </span>
-
-            Let me keep choosing you
-            when the butterflies
-            become familiar.
-
-        </div>
-
-    </div>
-
-
-    <button
-        class="primary-button"
-        onclick="nextScreen(5)"
-    >
-
-        One last thing before I ask... →
-
-    </button>
-
-</section>
-
-
-
-<!-- =======================================================
-     SCREEN 5
-======================================================= -->
-
-<section class="screen" id="screen5">
-
-    <div class="eyebrow">
-        Chapter 05 · No filters. Just me.
-    </div>
-
-
-    <h2>
-        Janvi...
-    </h2>
-
-
-    <div class="letter">
-
-
-        <p class="opening">
-
-            I don't know how you'll react
-            to this.
-
-        </p>
-
-
-        <p>
-
-            Maybe you'll smile.
-
-            Maybe you'll get shy.
-
-            Maybe you'll laugh at me
-            for making an entire website
-            just to say something
-            that could have been one message.
-
-        </p>
-
-
-        <p>
-
-            But I wanted to do something
-            different because what I'm trying
-            to say means more to me
-            than an ordinary text ever could.
-
-        </p>
-
-
-        <p>
-
-            Somewhere along the way,
-            you became someone I genuinely
-            look forward to.
-
-            Someone whose message can
-            change my mood.
-
-            Someone whose smile can make
-            an ordinary day feel different.
-
-        </p>
-
-
-        <p>
-
-            I don't want to impress you
-            with huge promises.
-
-            I don't want to tell you
-            that everything will always
-            be perfect.
-
-        </p>
-
-
-        <p>
-
-            I want something much more real.
-
-            I want the random conversations.
-
-            The late-night talks.
-
-            The stupid jokes.
-
-            The moments where we laugh
-            at something that nobody else
-            would understand.
-
-        </p>
-
-
-        <p>
-
-            I want the birthdays.
-
-            The surprises.
-
-            The little fights that eventually
-            become funny memories.
-
-            The ordinary Tuesdays.
-
-            The moments nobody posts.
-
-        </p>
-
-
-        <p>
-
-            Because maybe that's what
-            actually makes something special.
-
-            Not one perfect moment...
-
-            but thousands of small ones.
-
-        </p>
-
-
-        <p class="pink">
-
-            And Janvi...
-
-            I think I'd really like
-            to make some of those
-            memories with you.
-
-        </p>
-
-
-    </div>
-
-
-    <button
-        class="primary-button"
-        onclick="nextScreen(6)"
-    >
-
-        Now I have to ask you something... ❤️
-
-    </button>
-
-</section>
-
-
-
-<!-- =======================================================
-     SCREEN 6 — THE PROPOSAL
-======================================================= -->
-
-<section class="screen" id="screen6">
-
-    <div class="proposal-heart">
-        💖
-    </div>
-
-
-    <div class="eyebrow">
-        Chapter 06 · The question
-    </div>
-
-
-    <div class="proposal-name">
-
-        Janvi...
-
-    </div>
-
-
-    <div class="proposal-text">
-
-        I don't want to promise you
-        a perfect story.
-
-        <br>
-
-        I want to ask whether you'd like
-        to start writing an imperfect,
-        beautiful one with me.
-
-        <br><br>
-
-        I want to be someone who chooses you
-        not only when everything feels magical,
-
-        but also on the completely ordinary days.
-
-        <br><br>
-
-        Someone who remembers
-        the little things.
-
-        Someone who wants to see you smile.
-
-        Someone who wants to grow with you.
-
-    </div>
-
-
-    <div class="proposal-question">
-
-        If my heart gets a choice...
-
-        <br>
-
-        <span class="pink">
-            it chooses you.
-        </span>
-
-        <br><br>
-
-        <strong>
-            Will you choose me too?
-        </strong>
-
-        ❤️
-
-    </div>
-
-
-    <div
-        class="choice-area"
-        id="choiceArea"
-    >
-
-        <button
-            class="yes-button"
-            onclick="sayYes()"
-        >
-
-            YES ❤️
-
-            <small>
-                I choose you
-            </small>
-
-        </button>
-
-
-        <button
-            class="no-button"
-            id="noButton"
-            onclick="escapeNo(event)"
-            ontouchstart="escapeNo(event)"
-            onmouseenter="escapeNo(event)"
-        >
-
-            NO 🙈
-
-        </button>
-
-    </div>
-
-
-    <p
-        style="
-            font-family:Arial,sans-serif;
-            font-size:10px;
-            color:rgba(255,255,255,.30);
-            margin-top:-8px;
-        "
-    >
-
-        No is allowed...
-
-        <br>
-
-        although this button
-        seems unusually nervous. 😂
-
-    </p>
-
-</section>
-
-
-
-<!-- =======================================================
-     SCREEN 7
-======================================================= -->
-
-<section class="screen" id="screen7">
-
-    <div class="eyebrow">
-        Chapter 07 · One more thing
-    </div>
-
-
-    <img
-        class="final-photo"
-        src="IMG_1028.png"
-        alt="Janvi"
-    >
-
-
-    <div class="final-heart">
-        ❤️
-    </div>
-
-
-    <div class="final-title">
-
-        You chose me.
-
-    </div>
-
-
-    <div class="final-text">
-
-        And somehow...
-
-        <br>
-
-        the girl I wanted to impress
-
-        <br>
-
-        just became the girl
-        I want to make happy.
-
-        <br><br>
-
-        I don't promise perfection.
-
-        <br>
-
-        I promise effort.
-
-        Honesty.
-
-        Stupid jokes.
-
-        Random conversations.
-
-        And a lot of reasons to smile.
-
-        <br><br>
-
-        Maybe love isn't one perfect moment.
-
-        <br>
-
-        Maybe it's thousands
-        of little moments
-
-        where you keep saying...
-
-        <br><br>
-
-        <span class="pink">
-            "It's still you."
-        </span>
-
-    </div>
-
-
-    <button
-        class="primary-button"
-        onclick="openMemory()"
-    >
-
-        Open something
-        I'll never send anyone else 💌
-
-    </button>
-
-
-    <div
-        class="memory"
-        id="memory"
-    >
-
-        <div class="memory-date">
-
-            For Janvi — 23 August 2026 ❤️
-
-        </div>
-
-
-        The day I stopped wondering
-        what would happen if I told you...
-
-        <br>
-
-        and finally told you.
-
-        <br><br>
-
-
-        I didn't just ask you
-        to be mine.
-
-        <br>
-
-        I wanted to show you
-        why I wanted you.
-
-        <br><br>
-
-
-        I hope we laugh a lot.
-
-        <br>
-
-        I hope we make stupid memories.
-
-        <br>
-
-        I hope the random conversations
-        become our favourite memories.
-
-        <br><br>
-
-
-        I hope there are days
-        when we don't even need
-        to say much...
-
-        because somehow,
-        just being together
-        feels enough.
-
-        <br><br>
-
-
-        And whenever you look back
-        at this little website,
-
-        I hope you remember
-        that someone once sat down
-
-        and put his heart into
-        every little detail
-
-        just to see you smile.
-
-        <br><br>
-
-
-        <span class="pink">
-
-            I don't know what tomorrow brings...
-
-            <br><br>
-
-            but I really hope
-            I get to experience
-            some of it with you.
-
-        </span>
-
-        ❤️
-
-        <br><br>
-
-
-        — Yours,
-
-        <br>
-
-        if you'll have me.
-
-    </div>
-
-</section>
-
-
+<div class="eyebrow">A little universe I made for you</div>
+
+<div class="photo-wrap">
+<img class="photo" src="IMG_1045.jpeg" alt="Janvi">
+<div class="photo-badge">for your eyes only ♡</div>
 </div>
 
-</div>
+<div class="big-heart">♡</div>
 
+<h1><span class="gradient">Janvi,</span></h1>
 
-<!-- =========================================================
-     MUSIC BUTTON
-========================================================= -->
+<p class="muted">
+Before you answer anything...
+<br>
+let me show you something.
+<br><br>
+Don't rush.
+<br>
+This one is from my heart.
+</p>
 
-<button
-    class="music-button"
-    id="musicButton"
-    onclick="toggleMusic()"
->
-
-    ♪
-
+<button class="primary" onclick="goTo(2)">
+Enter my little universe →
 </button>
 
+</section>
 
-<audio
-    id="backgroundMusic"
-    loop
->
 
-    <!--
-    OPTIONAL MUSIC
+<!-- SCREEN 2 -->
+<section class="screen" id="screen2">
 
-    Upload a file named:
+<button class="back" onclick="goBack()">‹</button>
 
-    music.mp3
+<div class="eyebrow">Chapter 02 · The girl I notice</div>
 
-    beside index.html
+<div class="memory-photo">
+<img src="IMG_1048.jpeg" alt="Janvi with flower">
+</div>
 
-    Then uncomment:
+<h2>
+You probably don't realise
+how many little things
+I notice about you.
+</h2>
 
-    <source
-        src="music.mp3"
-        type="audio/mpeg"
-    >
-    -->
+<div class="reason-grid">
 
+<div class="reason"><span class="icon">♡</span>The way your smile changes your whole face.</div>
+<div class="reason"><span class="icon">✦</span>The little expressions you make without noticing.</div>
+<div class="reason"><span class="icon">☆</span>The way you can make an ordinary moment feel special.</div>
+<div class="reason"><span class="icon">∞</span>The fact that somehow you stay in my thoughts longer than you should.</div>
+<div class="reason"><span class="icon">☺</span>The random moments when you make me smile without even trying.</div>
+<div class="reason"><span class="icon">♥</span>And honestly... just being you.</div>
+
+</div>
+
+<button class="primary" onclick="goTo(3)">
+There's something I want to tell you →
+</button>
+
+</section>
+
+
+<!-- SCREEN 3 -->
+<section class="screen" id="screen3">
+
+<button class="back" onclick="goBack()">‹</button>
+
+<div class="eyebrow">Chapter 03 · A shayari for you</div>
+
+<div class="photo-wrap">
+<img class="photo" src="IMG_1047.jpeg" alt="Janvi">
+</div>
+
+<div class="shayari">
+
+<p class="line">
+Tumse mila toh laga, shayad kuch mulaqatein ittefaq nahi hoti...
+</p>
+
+<p class="line">
+Kuch log bas milte nahi,
+<span class="pink">dil mein utar jaate hain.</span>
+</p>
+
+<p class="line">
+Tumhari ek muskaan ka asar kuch aisa hai,
+ki din chahe kitna bhi kharab ho,
+dil ko tumhara khayal kaafi lagta hai.
+</p>
+
+<p class="line">
+Na jaane kya baat hai tum mein,
+jo tumse baat karne ka mann baar-baar karta hai.
+</p>
+
+<p class="line">
+Aur sach kahun Janvi...
+<br><br>
+mujhe tumse sirf mohabbat nahi,
+<br>
+<span class="pink">tumhare saath ek kahani chahiye.</span> ❤️
+</p>
+
+</div>
+
+<button class="primary" onclick="goTo(4)">
+Maybe you'll understand after this →
+</button>
+
+</section>
+
+
+<!-- SCREEN 4 -->
+<section class="screen" id="screen4">
+
+<button class="back" onclick="goBack()">‹</button>
+
+<div class="eyebrow">Chapter 04 · What I actually want</div>
+
+<div class="memory-photo">
+<img src="IMG_1046.jpeg" alt="Janvi">
+</div>
+
+<h2>I don't need a perfect love story.</h2>
+
+<p class="muted">
+I want the small things.
+<br>
+The things that don't make it into photographs.
+</p>
+
+<div class="wishes">
+
+<div class="wish">☎️<br><br>Random calls that somehow become hours.</div>
+<div class="wish">😂<br><br>Laughing at jokes that make absolutely no sense.</div>
+<div class="wish">🌙<br><br>Late-night conversations when neither of us wants to sleep.</div>
+<div class="wish">❤️<br><br>Being there on the days that aren't beautiful.</div>
+<div class="wish">📸<br><br>Making memories that nobody else gets to see.</div>
+<div class="wish">∞<br><br>Choosing each other again and again.</div>
+
+</div>
+
+<button class="primary" onclick="goTo(5)">
+I need to tell you something →
+</button>
+
+</section>
+
+
+<!-- SCREEN 5 -->
+<section class="screen" id="screen5">
+
+<button class="back" onclick="goBack()">‹</button>
+
+<div class="eyebrow">Chapter 05 · No filters</div>
+
+<h2>So here is the truth.</h2>
+
+<div class="letter">
+
+<p class="opening">Janvi,<br><br>I don't know exactly what you're going to feel while reading this.</p>
+
+<p>Maybe you'll smile. Maybe you'll get shy. Maybe you'll laugh at me because I made an entire website just to say something that could have been a message.</p>
+
+<p>But I wanted to do it differently. Because you are not an ordinary person to me. And I didn't want to give you an ordinary proposal.</p>
+
+<p>Somewhere along the way, you became someone I genuinely look forward to. Someone whose message can change my mood. Someone whose presence somehow makes normal days feel less normal.</p>
+
+<p>I don't want to impress you with impossible promises. I don't want to tell you that every day will be perfect.</p>
+
+<p>I want something real. The random conversations. The stupid jokes. The little arguments. The apologies. The laughs after the arguments.</p>
+
+<p>The moments where we look back and think, "What were we even fighting about?"</p>
+
+<p>I want the ordinary Tuesdays. The boring afternoons. The random photographs. The "have you eaten?" messages. The "goodnight" that becomes another hour of talking.</p>
+
+<p>Because maybe love isn't one giant magical moment. Maybe love is thousands of tiny moments where you keep choosing the same person.</p>
+
+<p>And if I get a choice...</p>
+
+<p><span class="pink">I want that person to be you.</span></p>
+
+</div>
+
+<button class="primary" onclick="goTo(6)">
+Now I have one question... ❤️
+</button>
+
+</section>
+
+
+<!-- SCREEN 6 -->
+<section class="screen" id="screen6">
+
+<button class="back" onclick="goBack()">‹</button>
+
+<div class="proposal-heart">💖</div>
+
+<div class="eyebrow">Chapter 06 · The question</div>
+
+<div class="proposal-name"><span class="gradient">Janvi...</span></div>
+
+<div class="proposal-copy">
+I could write another hundred lines.
+<br>
+I could find a thousand beautiful words.
+<br><br>
+But none of them would say what I actually mean.
+<br><br>
+So I'll keep it simple.
+<br><br>
+I want to know you.
+<br>
+I want to understand you.
+<br>
+I want to make you laugh.
+<br>
+I want to be there when you're having a terrible day.
+<br>
+I want to celebrate your smallest victories.
+<br>
+I want to make ordinary moments memorable.
+<br><br>
+And if life lets me...
+<br>
+I want to make a lot of those moments with you.
+</div>
+
+<div class="question">
+So...
+<br><br>
+<strong>Janvi, will you be mine? ❤️</strong>
+</div>
+
+<div class="choice">
+
+<button class="yes" onclick="sayYes()">
+YES ❤️
+<small>I choose you</small>
+</button>
+
+<button class="no"
+id="noButton"
+onclick="handleNo(event)"
+onmouseenter="handleNo(event)"
+ontouchstart="handleNo(event)">
+NO 🙈
+</button>
+
+</div>
+
+<p style="font:9px Arial;color:rgba(255,255,255,.25);margin-top:-8px">
+This button has apparently developed commitment issues. 😂
+</p>
+
+</section>
+
+
+<!-- SCREEN 7 -->
+<section class="screen" id="screen7">
+
+<div class="eyebrow">Chapter 07 · If you said yes</div>
+
+<img class="final-photo" src="IMG_1028.png" alt="Janvi and her dog">
+
+<div class="final-heart">❤️</div>
+
+<div class="final-title">You chose me.</div>
+
+<div class="final-copy">
+And somehow...
+<br>
+the girl I wanted to impress
+<br>
+just became the girl I want to make happy.
+<br><br>
+I don't promise perfection.
+<br>
+I promise effort.
+<br>
+I promise honesty.
+<br>
+I promise stupid jokes.
+<br>
+I promise random conversations.
+<br>
+And I'll try my best to give you a thousand reasons to smile.
+<br><br>
+Maybe love isn't one perfect moment.
+<br>
+Maybe it's thousands of tiny moments
+<br>
+where you keep saying...
+<br><br>
+<span class="pink">"It's still you."</span>
+</div>
+
+<button class="primary" onclick="openSecret()">
+One last secret 💌
+</button>
+
+<div class="secret" id="secret">
+
+<div class="secret-title">For Janvi — from my heart ❤️</div>
+
+The truth is...
+<br><br>
+I didn't make this website because I couldn't find the right words.
+<br><br>
+I made it because I wanted you to experience how much thought went into one simple question.
+<br><br>
+I wanted you to see your pictures, read my words, laugh at the stupid disappearing "NO", and eventually arrive here.
+<br><br>
+Because if there is one thing I want you to remember, it's this:
+<br><br>
+<span class="pink">
+You are not just someone I want to impress.
+<br><br>
+You are someone I genuinely want to know, understand, respect and love.
+</span>
+<br><br>
+I don't know exactly where our story goes.
+<br>
+But I know one thing.
+<br><br>
+I really, really hope...
+<br><br>
+<span class="pink">it goes somewhere beautiful.</span>
+<br><br>
+❤️
+<br><br>
+— Yours,
+<br>
+<span class="pink">if you'll have me.</span>
+
+</div>
+
+<button class="primary" onclick="restart()">
+Read it all again ↺
+</button>
+
+</section>
+
+
+<button class="music" id="musicButton" onclick="toggleMusic()">♪</button>
+
+</div>
+</div>
+
+
+<audio id="musicAudio" loop preload="auto">
+<source src="music.mp3" type="audio/mpeg">
 </audio>
 
 
-
 <script>
+let currentScreen=1;
+const TOTAL=7;
+let musicPlaying=false;
+let noAttempts=0;
 
-/* =========================================================
-   SCREEN NAVIGATION
-========================================================= */
+const $=id=>document.getElementById(id);
 
-let currentScreen = 1;
+function goTo(n){
+    n=Number(n);
+    if(!Number.isInteger(n)||n<1||n>TOTAL)return;
 
-function nextScreen(number){
+    document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
 
-    document
-        .querySelectorAll(".screen")
-        .forEach(screen => {
-
-            screen.classList.remove("active");
-
-        });
-
-
-    const target =
-        document.getElementById(
-            "screen" + number
-        );
-
+    const target=$("screen"+n);
+    if(!target)return;
 
     target.classList.add("active");
+    currentScreen=n;
+    target.scrollTop=0;
 
-
-    currentScreen = number;
-
-
-    for(
-        let i = 1;
-        i <= 7;
-        i++
-    ){
-
-        const dot =
-            document.getElementById(
-                "dot" + i
-            );
-
-
-        dot.classList.toggle(
-            "active",
-            i <= number
-        );
-
+    for(let i=1;i<=TOTAL;i++){
+        const d=$("dot"+i);
+        if(d)d.classList.toggle("active",i<=n);
     }
 
+    if(n>=2&&!musicPlaying)startMusic();
+}
+
+function goBack(){
+    if(currentScreen>1)goTo(currentScreen-1);
 }
 
 
-/* =========================================================
-   RUNNING NO BUTTON
-========================================================= */
+/* SWIPE */
+let sx=0,sy=0;
 
-const noButton =
-    document.getElementById(
-        "noButton"
-    );
+document.addEventListener("touchstart",e=>{
+    if(!e.changedTouches?.length)return;
+    sx=e.changedTouches[0].clientX;
+    sy=e.changedTouches[0].clientY;
+},{passive:true});
+
+document.addEventListener("touchend",e=>{
+    if(!e.changedTouches?.length)return;
+
+    const dx=e.changedTouches[0].clientX-sx;
+    const dy=e.changedTouches[0].clientY;
+
+    if(Math.abs(dx)<80||Math.abs(dx)<=Math.abs(dy))return;
+
+    if(dx<0&&currentScreen<TOTAL)goTo(currentScreen+1);
+    if(dx>0&&currentScreen>1)goTo(currentScreen-1);
+},{passive:true});
 
 
-const choiceArea =
-    document.getElementById(
-        "choiceArea"
-    );
+/* MUSIC */
+const audio=$("musicAudio");
+const musicButton=$("musicButton");
+
+async function startMusic(){
+    if(!audio)return;
+
+    try{
+        audio.volume=.38;
+        await audio.play();
+        musicPlaying=true;
+        updateMusic();
+    }catch(e){
+        musicPlaying=false;
+        updateMusic();
+    }
+}
+
+async function toggleMusic(){
+    if(!audio)return;
+
+    try{
+        if(audio.paused){
+            audio.volume=.38;
+            await audio.play();
+            musicPlaying=true;
+        }else{
+            audio.pause();
+            musicPlaying=false;
+        }
+    }catch(e){
+        musicPlaying=false;
+    }
+
+    updateMusic();
+}
+
+function updateMusic(){
+    if(!musicButton)return;
+    musicButton.classList.toggle("playing",musicPlaying);
+    musicButton.textContent=musicPlaying?"❚❚":"♪";
+}
+
+if(audio){
+    audio.addEventListener("error",()=>{
+        musicPlaying=false;
+        updateMusic();
+    });
+}
 
 
-const noMessages = [
-
-    "NO 🙈",
-
-    "Are you sure? 🥺",
-
-    "Think again 😭",
-
-    "Not so fast 😂",
-
-    "Really? 💔",
-
-    "One more chance ❤️",
-
-    "You almost got me 😏",
-
-    "Try again 🙃",
-
-    "I don't believe you 😭",
-
-    "Nice try 😂"
-
+/* NO BUTTON */
+const noMessages=[
+"NO 🙈",
+"Are you sure? 🥺",
+"Think again 😭",
+"Wait... 😭",
+"Not so fast 😂",
+"Really? 💔",
+"One more chance ❤️",
+"Nice try 😏",
+"Almost! 😂",
+"I don't believe you 😭",
+"Try catching me 😈",
+"You can't escape YES 😂"
 ];
 
-
-let noAttempts = 0;
-
-
-function escapeNo(event){
-
-    if(event){
-
-        event.preventDefault();
-
+function handleNo(e){
+    if(e){
+        e.preventDefault();
+        e.stopPropagation();
     }
+    moveNo();
+}
 
+function moveNo(){
+    const b=$("noButton");
+    const area=document.querySelector(".choice");
 
-    const areaWidth =
-        choiceArea.clientWidth;
+    if(!b||!area)return;
 
+    const aw=area.clientWidth;
+    const ah=area.clientHeight;
+    const bw=b.offsetWidth;
+    const bh=b.offsetHeight;
 
-    const areaHeight =
-        choiceArea.clientHeight;
+    const maxX=Math.max(5,aw-bw-5);
+    const maxY=Math.max(55,ah-bh-5);
 
+    const x=5+Math.random()*Math.max(1,maxX-5);
+    const y=45+Math.random()*Math.max(1,maxY-45);
 
-    const buttonWidth =
-        noButton.offsetWidth;
+    b.style.left=x+"px";
+    b.style.top=y+"px";
+    b.style.transform="none";
 
-
-    const buttonHeight =
-        noButton.offsetHeight;
-
-
-    const padding = 5;
-
-
-    const maxX =
-        Math.max(
-            padding,
-            areaWidth -
-            buttonWidth -
-            padding
-        );
-
-
-    const maxY =
-        Math.max(
-            padding,
-            areaHeight -
-            buttonHeight -
-            padding
-        );
-
-
-    const randomX =
-        padding +
-        Math.random() *
-        Math.max(
-            1,
-            maxX - padding
-        );
-
-
-    const randomY =
-        padding +
-        Math.random() *
-        Math.max(
-            1,
-            maxY - padding
-        );
-
-
-    noButton.style.left =
-        randomX + "px";
-
-
-    noButton.style.top =
-        randomY + "px";
-
-
-    noButton.style.transform =
-        "none";
-
-
-    noButton.textContent =
-        noMessages[
-            noAttempts %
-            noMessages.length
-        ];
-
-
+    b.textContent=noMessages[noAttempts%noMessages.length];
     noAttempts++;
 
+    if(noAttempts>=4)smallHearts();
 }
 
 
-/* =========================================================
-   YES
-========================================================= */
-
+/* YES */
 function sayYes(){
+    explosion();
 
-    createHeartExplosion();
+    if(audio&&!audio.paused)audio.volume=.55;
 
-
-    setTimeout(
-        function(){
-
-            nextScreen(7);
-
-        },
-        950
-    );
-
+    setTimeout(()=>goTo(7),900);
 }
 
 
-/* =========================================================
-   HEART EXPLOSION
-========================================================= */
+/* HEART EXPLOSION */
+function explosion(){
+    const symbols=["❤️","💖","💕","💗","💓","💘","💝","✨","🌹"];
+    const frag=document.createDocumentFragment();
 
-function createHeartExplosion(){
+    for(let i=0;i<90;i++){
+        const el=document.createElement("div");
+        el.className="explosion";
+        el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
 
-    const symbols = [
+        const a=Math.random()*Math.PI*2;
+        const d=130+Math.random()*580;
 
-        "❤️",
-        "💖",
-        "💕",
-        "💗",
-        "💓",
-        "💘",
-        "💝",
-        "✨",
-        "🌹"
+        el.style.setProperty("--x",Math.cos(a)*d+"px");
+        el.style.setProperty("--y",Math.sin(a)*d+"px");
+        el.style.animationDelay=Math.random()*.25+"s";
 
-    ];
-
-
-    for(
-        let i = 0;
-        i < 100;
-        i++
-    ){
-
-        const element =
-            document.createElement(
-                "div"
-            );
-
-
-        element.className =
-            "explosion";
-
-
-        element.textContent =
-            symbols[
-                Math.floor(
-                    Math.random() *
-                    symbols.length
-                )
-            ];
-
-
-        const angle =
-            Math.random() *
-            Math.PI *
-            2;
-
-
-        const distance =
-            150 +
-            Math.random() *
-            550;
-
-
-        element.style.setProperty(
-            "--x",
-            Math.cos(angle) *
-            distance +
-            "px"
-        );
-
-
-        element.style.setProperty(
-            "--y",
-            Math.sin(angle) *
-            distance +
-            "px"
-        );
-
-
-        element.style.animationDelay =
-            Math.random() *
-            .45 +
-            "s";
-
-
-        document.body.appendChild(
-            element
-        );
-
-
-        setTimeout(
-            function(){
-
-                element.remove();
-
-            },
-            3500
-        );
-
+        frag.appendChild(el);
+        setTimeout(()=>el.remove(),3300);
     }
 
+    document.body.appendChild(frag);
+}
+
+function smallHearts(){
+    const symbols=["❤️","✨","💕"];
+
+    for(let i=0;i<12;i++){
+        const el=document.createElement("div");
+        el.className="explosion";
+        el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+
+        const a=Math.random()*Math.PI*2;
+        const d=80+Math.random()*220;
+
+        el.style.setProperty("--x",Math.cos(a)*d+"px");
+        el.style.setProperty("--y",Math.sin(a)*d+"px");
+
+        document.body.appendChild(el);
+        setTimeout(()=>el.remove(),3000);
+    }
 }
 
 
-/* =========================================================
-   FLOATING HEARTS
-========================================================= */
+/* FLOATING PARTICLES */
+function particle(){
+    const el=document.createElement("div");
+    el.className="particle";
 
-function createFloatingHeart(){
+    const symbols=["♡","♥","✦","✧"];
+    el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
 
-    const heart =
-        document.createElement(
-            "div"
-        );
+    el.style.left=Math.random()*100+"vw";
+    el.style.fontSize=9+Math.random()*15+"px";
+    el.style.setProperty("--drift",(Math.random()*180-90)+"px");
+    el.style.animationDuration=9+Math.random()*10+"s";
 
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),20000);
+}
 
-    heart.className =
-        "floating-heart";
-
-
-    const symbols = [
-        "♡",
-        "♥",
-        "❤",
-        "✦"
-    ];
+setInterval(particle,900);
 
 
-    heart.textContent =
-        symbols[
-            Math.floor(
-                Math.random() *
-                symbols.length
-            )
-        ];
+/* SECRET */
+function openSecret(){
+    const s=$("secret");
+    if(!s)return;
 
+    s.classList.add("show");
+    explosion();
 
-    heart.style.left =
-        Math.random() *
-        100 +
-        "vw";
-
-
-    heart.style.fontSize =
-        10 +
-        Math.random() *
-        16 +
-        "px";
-
-
-    heart.style.setProperty(
-        "--drift",
-        (
-            Math.random() *
-            180 -
-            90
-        ) +
-        "px"
-    );
-
-
-    heart.style.animationDuration =
-        9 +
-        Math.random() *
-        9 +
-        "s";
-
-
-    document.body.appendChild(
-        heart
-    );
-
-
-    setTimeout(
-        function(){
-
-            heart.remove();
-
-        },
-        19000
-    );
-
+    setTimeout(()=>{
+        s.scrollIntoView({
+            behavior:"smooth",
+            block:"nearest"
+        });
+    },120);
 }
 
 
-setInterval(
-    createFloatingHeart,
-    1000
-);
+/* RESTART */
+function restart(){
+    const s=$("secret");
+    const b=$("noButton");
 
+    if(s)s.classList.remove("show");
 
-/* =========================================================
-   MEMORY
-========================================================= */
+    noAttempts=0;
 
-function openMemory(){
-
-    const memory =
-        document.getElementById(
-            "memory"
-        );
-
-
-    memory.classList.add(
-        "show"
-    );
-
-
-    createHeartExplosion();
-
-
-    setTimeout(
-        function(){
-
-            memory.scrollIntoView({
-                behavior:"smooth",
-                block:"nearest"
-            });
-
-        },
-        100
-    );
-
-}
-
-
-/* =========================================================
-   MUSIC
-========================================================= */
-
-const music =
-    document.getElementById(
-        "backgroundMusic"
-    );
-
-
-const musicButton =
-    document.getElementById(
-        "musicButton"
-    );
-
-
-let musicPlaying = false;
-
-
-function toggleMusic(){
-
-    const source =
-        music.querySelector(
-            "source"
-        );
-
-
-    if(!source){
-
-        alert(
-            "Agar music chahiye, repository mein music.mp3 upload karo aur HTML mein music source uncomment karo. ❤️"
-        );
-
-        return;
-
+    if(b){
+        b.style.left="50%";
+        b.style.top="88px";
+        b.style.transform="translateX(-50%)";
+        b.textContent="NO 🙈";
     }
 
-
-    if(musicPlaying){
-
-        music.pause();
-
-        musicButton.textContent =
-            "♪";
-
-        musicPlaying = false;
-
-    }
-
-    else{
-
-        music.play();
-
-        musicButton.textContent =
-            "❚❚";
-
-        musicPlaying = true;
-
-    }
-
+    goTo(1);
 }
 
+
+/* KEYBOARD */
+document.addEventListener("keydown",e=>{
+    if(e.key==="ArrowRight"&&currentScreen<TOTAL)goTo(currentScreen+1);
+    if(e.key==="ArrowLeft"&&currentScreen>1)goTo(currentScreen-1);
+});
+
+
+/* IMAGE SAFETY */
+document.querySelectorAll("img").forEach(img=>{
+    img.addEventListener("error",()=>{
+        img.style.display="none";
+    });
+
+    img.addEventListener("dragstart",e=>e.preventDefault());
+});
+
+
+goTo(1);
 </script>
 
 </body>
